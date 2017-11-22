@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) 2015-2017 <a href="">caishigou</a> All rights reserved.
+ */
+package org.seven.caishigou.test.repository;
+
+import org.seven.caishigou.test.domain.OrderAgentTotal;
+import org.seven.caishigou.test.repository.custom.CustomRepository;
+
+/**
+ * createTime: 2017-11-21 11:21:58
+ * @author seven
+ * @version
+ */
+public interface OrderAgentTotalRepository extends CustomRepository<OrderAgentTotal, String> {
+
+}
