@@ -30,8 +30,12 @@ public class UserMessage implements Serializable {
 
 	private byte type;
 
-	@Column(name="user_id")
-	private Integer userId;
+//	@Column(name="user_id")
+//	private Integer userId;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public UserMessage() {
 	}
@@ -84,12 +88,20 @@ public class UserMessage implements Serializable {
 		this.type = type;
 	}
 
-	public Integer getUserId() {
-		return this.userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+//	public Integer getUserId() {
+//		return this.userId;
+//	}
+//
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	}
 
 }

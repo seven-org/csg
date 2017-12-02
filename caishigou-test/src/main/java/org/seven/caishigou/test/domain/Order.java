@@ -1,10 +1,21 @@
 package org.seven.caishigou.test.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.math.BigInteger;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -18,6 +29,7 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+//	@JsonIgnore
 	private Integer id;
 
 	private String address;
@@ -82,6 +94,7 @@ public class Order implements Serializable {
 	@Column(name="oos_price")
 	private BigInteger oosPrice;
 
+//	@Id
 	@Column(name="order_number")
 	private String orderNumber;
 
@@ -119,6 +132,7 @@ public class Order implements Serializable {
 	@Column(name="reminder_time")
 	private Date reminderTime;
 
+	@Column(name="remindstall")
 	private Integer remindStall;
 
 	@Column(name="sent_time")
@@ -163,6 +177,10 @@ public class Order implements Serializable {
 
 	@Column(name="weighing_confirm")
 	private Integer weighingConfirm;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "order_number", referencedColumnName = "order_number")
+	private Set<OrderGoods> orderGoodses;
 
 	public Order() {
 	}
@@ -557,6 +575,14 @@ public class Order implements Serializable {
 
 	public void setWeighingConfirm(int weighingConfirm) {
 		this.weighingConfirm = weighingConfirm;
+	}
+
+	public Set<OrderGoods> getOrderGoodses() {
+		return orderGoodses;
+	}
+
+	public void setOrderGoodses(Set<OrderGoods> orderGoodses) {
+		this.orderGoodses = orderGoodses;
 	}
 
 }

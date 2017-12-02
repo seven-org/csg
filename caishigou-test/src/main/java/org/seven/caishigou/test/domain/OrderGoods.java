@@ -46,8 +46,15 @@ public class OrderGoods implements Serializable {
 	@Column(name="item_id")
 	private Integer itemId;
 
-	@Column(name="order_number")
-	private String orderNumber;
+//	@Column(name="order_number")
+//	private String orderNumber;
+	
+	/*
+	 * 
+	 */
+//	@ManyToOne
+//	@JoinColumn(name = "order_number")
+//	private Order order;
 
 	private BigInteger price;
 
@@ -154,13 +161,21 @@ public class OrderGoods implements Serializable {
 		this.itemId = itemId;
 	}
 
-	public String getOrderNumber() {
-		return this.orderNumber;
-	}
+//	public String getOrderNumber() {
+//		return this.orderNumber;
+//	}
+//
+//	public void setOrderNumber(String orderNumber) {
+//		this.orderNumber = orderNumber;
+//	}
 
-	public void setOrderNumber(String orderNumber) {
-		this.orderNumber = orderNumber;
-	}
+//	public Order getOrder() {
+//		return order;
+//	}
+//
+//	public void setOrder(Order order) {
+//		this.order = order;
+//	}
 
 	public BigInteger getPrice() {
 		return this.price;

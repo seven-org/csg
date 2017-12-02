@@ -13,6 +13,8 @@ logging:
     org.springframework.web: DEBUG
 
 spring:
+  jpa:
+    show-sql: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://119.23.135.132:3306/foodmarket?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true

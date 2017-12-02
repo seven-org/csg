@@ -1,9 +1,18 @@
 package org.seven.caishigou.test.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
 import java.math.BigInteger;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -47,6 +56,7 @@ public class User implements Serializable {
 	@Column(name="last_get_inner_mail_time")
 	private Date lastGetInnerMailTime;
 
+	@Column(name = "microblog_unionid")
 	private String microblog_unionId;
 
 	private BigInteger money;
@@ -62,6 +72,7 @@ public class User implements Serializable {
 
 	private String photo;
 
+	@Column(name = "qq_unionid")
 	private String qq_unionId;
 
 	private Integer sex;
@@ -73,7 +84,14 @@ public class User implements Serializable {
 	@Column(name="wechat_open_id")
 	private String wechatOpenId;
 
+	@Column(name = "wechat_unionid")
 	private String wechat_unionId;
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserCoupon> userCoupons;
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserMessage> userMessages;
 
 	public User() {
 	}
@@ -268,6 +286,22 @@ public class User implements Serializable {
 
 	public void setWechat_unionId(String wechat_unionId) {
 		this.wechat_unionId = wechat_unionId;
+	}
+
+	public List<UserCoupon> getUserCoupons() {
+		return userCoupons;
+	}
+
+	public void setUserCoupons(List<UserCoupon> userCoupons) {
+		this.userCoupons = userCoupons;
+	}
+
+	public List<UserMessage> getUserMessages() {
+		return userMessages;
+	}
+
+	public void setUserMessages(List<UserMessage> userMessages) {
+		this.userMessages = userMessages;
 	}
 
 }
