@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.seven.test'
+version = '0.0.1-SNAPSHOT'
+
+description = """caishigou-test"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version:'1.5.8.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version:'1.5.8.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version:'1.5.8.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.8.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.44'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.5.8.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+    testCompile group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version:'1.1.3.RELEASE'
+}

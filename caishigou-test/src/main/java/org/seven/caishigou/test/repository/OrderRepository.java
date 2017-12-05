@@ -3,8 +3,6 @@
  */
 package org.seven.caishigou.test.repository;
 
-import java.util.List;
-
 import org.seven.caishigou.test.domain.Order;
 import org.seven.caishigou.test.repository.custom.CustomRepository;
 import org.springframework.data.domain.Page;
