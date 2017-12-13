@@ -74,4 +74,21 @@ public interface OrderRepository extends CustomRepository<Order, Integer> {
 	@RestResource(path = "userIdIs", rel = "userIdIs")
 	Page<Order> findByUserIdIs(@Param("userId") Integer userId, Pageable pageable);
 	
+	/**
+	 * 
+	 * @date Dec 13, 2017 7:00:44 PM
+	 * @Title: findByOrderStatusDetailsAndIsUrgent 
+	 * @Description: select o from Order o where o.orderStatusDetails=?1
+	 * @param @param orderStatusDetails
+	 * @param @param pageable
+	 * @param @return
+	 * @return Page<Order>
+	 * @throws
+	 */
+	@RestResource(path = "orderStatusDetails", rel = "orderStatusDetails")
+	Page<Order> findByOrderStatusDetailsAndIsUrgent(
+			@Param("orderStatusDetails") Integer orderStatusDetails,
+			@Param("isUrgent") Integer isUrgent,
+			Pageable pageable);
+	
 }
